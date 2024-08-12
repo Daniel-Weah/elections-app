@@ -1,0 +1,83 @@
+<%- include('layout/header') %>
+<style>
+  
+    form{
+        margin: 10px auto;
+        width: 80%;
+    }
+    
+    form ul li{
+        list-style-type: none;
+    }
+    form ul li label{
+        font-size: 1.3rem;
+        font-weight: 500;
+        font-family: 'Ubuntu', sans-serif;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        line-height: 4pc;
+    }
+    form ul li label:hover{
+        background-color: #e1e0e0;
+    }
+    form ul li label img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+</style>
+</head>
+<body>
+    <h1 style="text-align: center;font-weight: bold;">Vote Candidate</h1>
+    <hr>
+    <form action="/vote" method="POST">
+        <h2>Chairman</h2>
+        <ul>
+            <% candidates.forEach(candidate => { %>
+                <% if (candidate.position == 'Chairman') { %>
+                <li>
+                    <label>
+                        <img src="data:image/png;base64,<%= candidate.photo %>" alt="candidate photo">
+                        <input type="radio" name="candidateId" value="<%= candidate.id %>">
+                        <%= candidate.first_name %> <%= candidate.middle_name %> <%= candidate.last_name %> 
+                        - <%= candidate.position %> (<%= candidate.party %>)
+                    </label>
+                </li>
+                <%}%>
+            <% }); %>
+        </ul>
+        <h2>Chairlady</h2>
+        <ul>
+            <% candidates.forEach(candidate => { %>
+                <% if (candidate.position == 'Chairlady') { %>
+                <li>
+                    <label>
+                        <img src="data:image/png;base64,<%= candidate.photo %>" alt="candidate photo">
+                        <input type="radio" name="candidateId2" value="<%= candidate.id %>">
+                        <%= candidate.first_name %> <%= candidate.middle_name %> <%= candidate.last_name %> 
+                        - <%= candidate.position %> (<%= candidate.party %>)
+                    </label>
+                </li>
+                <%}%>
+            <% }); %>
+        </ul>
+        <h2>Youth Coordinator</h2>
+        <ul>
+            <% candidates.forEach(candidate => { %>
+                <% if (candidate.position == 'Youth Coordinator') { %>
+                <li>
+                    <label>
+                        <img src="data:image/png;base64,<%= candidate.photo %>" alt="candidate photo">
+                        <input type="radio" name="candidateId3" value="<%= candidate.id %>">
+                        <%= candidate.first_name %> <%= candidate.middle_name %> <%= candidate.last_name %> 
+                        - <%= candidate.position %> (<%= candidate.party %>)
+                    </label>
+                </li>
+                <%}%>
+            <% }); %>
+        </ul>
+        
+        <button type="submit" class="btn btn-primary">Submit Vote</button>
+    </form>
+</body>
+</html>

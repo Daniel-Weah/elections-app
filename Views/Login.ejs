@@ -1,0 +1,58 @@
+<%- include('layout/header') %>    <!-- Added this style.css which has the style for bootstrap 4
+    select because Bootstrap 5 select has a bug -->
+
+    
+    </head>
+
+    <body>
+
+        <!--Main layout-->
+        <main style="margin-top: 50px; padding-left: 0" >
+            
+            <div class="container pt-2 ">
+                <!--Section: Statistics with subtitles-->
+                <section style="display: grid; justify-items: center;padding: 0.8rem;width: 50%;margin: 0 auto; border-radius: 10px;" class="bg-light">
+                    <h1 class="mb-4" style="text-align: center;">Login</h1>
+                    <h3 class="fs-6 fw-normal text-secondary m-0 mb-3">Please enter your correct credentials to login</h3>
+
+                    <form method="post" action="/login" style="width: 29vw;" >
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                              <input type="text" class="form-control" name="username" id="userName" placeholder="User Name" required>
+                              <label for="userName" class="form-label">User Name</label>
+                            </div>
+                          </div>
+
+                          <div class="col-12">
+                            <div class="form-floating mb-3">
+                              <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
+                              <label for="password" class="form-label">Password</label>
+                            </div>
+                          </div>
+
+                        <!-- Submit button -->
+                        <div class="mb-3">
+                            <article class="mb-2">
+                                <a href="/forget-password">Forget Password</a>
+                            </article>
+
+                            <button style="width: 100%; margin-top: 10px;" id="login-btn" class="btn btn-primary btn-block btn-lg mb-4">Login</button>
+                        </div>
+
+                    </form>
+                 
+                </section>
+            </div>
+        </main>
+          <script>
+window.onload = function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('success')) {
+    alert('Password updated successfully');
+  }
+};
+
+          </script>
+    </body>
+
+    </html>

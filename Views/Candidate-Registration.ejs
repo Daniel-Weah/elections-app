@@ -1,0 +1,59 @@
+<%- include('layout/header') %>  
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <main style="margin-top: 50px; padding-left: 0">
+        <div class="container pt-2">
+            <section style="display: grid; justify-items: center; padding: 0.8rem; width: 50%; margin: 0 auto; border-radius: 10px;" class="bg-light">
+                <h1 class="mb-4" style="text-align: center;">Candidate Registration</h1>
+                <h3 class="fs-6 fw-normal text-secondary m-0 mb-3">Register my candidate</h3>
+                <form action="/candidate/registration" method="post" id="candidateRegistrationForm" style="width: 29vw;" enctype="multipart/form-data">
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" required>
+                          <label for="firstname" class="form-label">First Name</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" name="middlename" id="middlename" placeholder="Middle Name">
+                          <label for="middlename" class="form-label">Middle Name</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last Name" required>
+                          <label for="lastname" class="form-label">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label for="party" class="form-label">Party:</label>
+                        <select id="party" name="party" class="form-select" required>
+                            <% parties.forEach(party => { %>
+                                <option value="<%= party.id %>"><%= party.party %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label for="position" class="form-label">Position:</label>
+                        <select id="position" name="position" class="form-select" required>
+                            <% positions.forEach(position => { %>
+                                <option value="<%= position.id %>"><%= position.position %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <input type="file" class="form-control" name="photo" id="photo" required accept=".jpg, .jpeg, .png">
+                          <label for="photo" class="form-label">Candidate Photo (.jpg, .jpeg, .png)</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button style="width: 100%; margin-top: 10px;" id="login-btn" class="btn btn-primary btn-block btn-lg mb-4">Register Candidate</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+    <script src="/js/candidate.js"></script>
+<%- include('layout/footer') %>

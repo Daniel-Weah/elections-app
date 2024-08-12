@@ -1,0 +1,40 @@
+<%- include('layout/header') %>
+<!-- Added this style.css which has the style for bootstrap 4 select because Bootstrap 5 select has a bug -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <!-- Main layout -->
+    <main style="margin-top: 50px; padding-left: 0">
+        <div class="container pt-2">
+            <!-- Section: Statistics with subtitles -->
+            <section style="display: grid; justify-items: center; padding: 0.8rem; width: 50%; margin: 0 auto; border-radius: 10px;" class="bg-light">
+                <h1 class="mb-4" style="text-align: center;">Party Registration</h1>
+                <h3 class="fs-6 fw-normal text-secondary m-0 mb-3">Register your desired party</h3>
+
+                <form action="/create/party" method="post" id="partyRegistrationForm" style="width: 29vw;" enctype="multipart/form-data">
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="party" id="party" placeholder="Party Name" required>
+                            <label for="party" class="form-label">Party Name</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                            <input type="file" class="form-control" name="logo" id="partyLogo" required accept=".jpg, .jpeg, .png">
+                            <label for="logo" class="form-label">Party Logo (.jpg, .jpeg, .png)</label>
+                        </div>
+                    </div>
+
+                    <!-- Submit button -->
+                    <div class="mb-3">
+                        <button style="width: 100%; margin-top: 10px;" id="login-btn" class="btn btn-primary btn-block btn-lg mb-4">Register Party</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script src="/js/party.js"></script>
+    <%- include('layout/footer') %>
