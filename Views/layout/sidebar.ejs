@@ -8,55 +8,65 @@
       <a href="/dashboard" class="list-group-item list-group-item-action py-2 ripple bg-primary rounded 4 " style="color: white;">
         <i class="fas fa-chart-area fa-fw me-3"></i><span>Dashboard</span>
       </a>
-
+      
+      
       <a
-        href="#" onclick="loadContent('/voters')"
+        href="/vote"
         class="list-group-item list-group-item-action py-2 ripple"
-      >
-        <i class="fas fa-lock fa-fw me-3"></i><span>Voters</span></a
-      >
-      <a
-      href="#" onclick="loadContent('/vote')"
-        class="list-group-item list-group-item-action py-2 ripple"
-      >
-      <i class="fas fa-person-booth fa-fw me-3"></i><span>Vote Candidate</span></a
-      >
+        >
+        <i class="fas fa-person-booth fa-fw me-3"></i><span>Vote Candidate</span></a
+        >
+        <% if (role === 'Admin') { %>
+        <a
+          href="/voters"
+          class="list-group-item list-group-item-action py-2 ripple"
+        >
+          <i class="fas fa-lock fa-fw me-3"></i><span>Voters</span></a
+        >
 
 
       <a
-        href="#" onclick="loadContent('/create/party')"
+        href="/create/party" 
         class="list-group-item list-group-item-action py-2 ripple"
       >
         <i class="fas fa-chart-pie fa-fw me-3"></i><span>Parties</span>
       </a>
 
       <a
-      href="#" onclick="loadContent('/add/position')"
+      href="/add/position"
         class="list-group-item list-group-item-action py-2 ripple"
       >
         <i class="fas fa-chart-bar fa-fw me-3"></i><span>Positions</span>
       </a>
 
       <a
-      href="#" onclick="loadContent('/candidate/registration')"
+      href="/candidate/registration"
         class="list-group-item list-group-item-action py-2 ripple"
       >
         <i class="fas fa-globe fa-fw me-3"></i><span>Candidates</span>
       </a>
 
       <a
-        href="/election/create"
+        href="/create/election"
         class="list-group-item list-group-item-action py-2 ripple"
       >
         <i class="fas fa-chart-pie fa-fw me-3"></i><span>Elections</span>
       </a>
-
       <a
-      href="#" onclick="loadContent('/registration')"
+        href="/vote/analysis"
         class="list-group-item list-group-item-action py-2 ripple"
       >
-        <i class="fas fa-chart-pie fa-fw me-3"></i><span>Users</span>
+        <i class="fas fa-chart-bar fa-fw me-3"></i><span>Vote Analysis</span>
       </a>
+      <a
+        href="/create/notification"
+        class="list-group-item list-group-item-action py-2 ripple"
+      >
+      <i class="fas fa-bell fa-fw me-3"></i><span>Create Notification</span>
+      </a>
+
+      <% } %>
+    
     </div>
   </div>
 </nav>

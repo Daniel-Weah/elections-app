@@ -13,13 +13,48 @@
         
         line-height: 2rem;
     }
-
+    form{
+    width: 29vw;
+  }
+  section{
+    display: grid; justify-items: center;padding: 0.8rem;width: 50%;margin: 0 auto; border-radius: 10px;
+  }
+@media only screen and (max-width: 600px){
+  .container-setting{
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
+    }
+    form {
+    width: 100%;
+  }
+  section{
+    margin-top: 20px;
+    width: 100%;
+    padding: 0;
+  }
+}
+@media only screen and (min-width: 600px)and (max-width: 768px){
+  .container-setting{
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
+    }
+    form {
+    width: 100%;
+  }
+  section{
+    margin-top: 20px;
+    width: 100%;
+    padding: 0;
+  }
+}
 </style>
 </head>
 <body>
     <div class="container-setting" id="voter-settting">
         <h2>Settings</h2>
-        <h6>We only enable you to the access to changing your username and password. Your personal information remains the same from the date of registration.</h6>
+        <h6>We only enable you access changing your username and password. Your personal information remains the same from the date of registration.</h6>
       
         <div class="info-area">
            <!-- Tabs navs -->
@@ -40,20 +75,20 @@
         
             <div class="container pt-2 ">
                 <!--Section: Statistics with subtitles-->
-                <section style="display: grid; justify-items: center;padding: 0.8rem;width: 50%;margin: 0 auto; border-radius: 10px;" class="bg-light">
+                <section >
                     <h1 class="mb-4" style="text-align: center;">Update Username</h1>
                     
-                    <form method="post" action="/setting/change/username" style="width: 29vw;" id="updateUsernameForm">
+                    <form action="/setting/change/username" method="post"   id="updateUsernameForm" enctype="multipart/form-data">
                         <div class="col-12">
                             <div class="form-floating mb-3">
-                              <input type="text" class="form-control" name="Currentusername" id="Currentusername" placeholder="Current User Name" required>
-                              <label for="Currentusername" class="form-label">Current User Name</label>
+                              <input type="text" class="form-control" name="username" id="username" placeholder="Current User Name" required>
+                              <label for="username" class="form-label">Current User Name</label>
                             </div>
                           </div>
     
                           <div class="col-12">
                             <div class="form-floating mb-3">
-                              <input type="text" class="form-control" name="Newusername" id="Newusername" value="" placeholder="username" required>
+                              <input type="text" class="form-control" name="Newusername" id="Newusername" placeholder="username" required>
                               <label for="Newusername" class="form-label">New Username</label>
                             </div>
                           </div>
@@ -74,10 +109,10 @@
         
             <div class="container pt-2 ">
                 <!--Section: Statistics with subtitles-->
-                <section style="display: grid; justify-items: center;padding: 0.8rem;width: 50%;margin: 0 auto; border-radius: 10px;" class="bg-light">
+                <section >
                     <h1 class="mb-4" style="text-align: center;">Forget Password</h1>
                     
-                    <form method="post" action="/setting/forget-password" style="width: 29vw;" id="forgetPasswordForm">
+                    <form method="post" action="/setting/forget-password"  id="forgetPasswordForm">
                         <div class="col-12">
                             <div class="form-floating mb-3">
                               <input type="text" class="form-control" name="username" id="userName" placeholder="User Name" required>
@@ -115,47 +150,5 @@
   
         </div>
     </div>
-    <script>
-    //   document.getElementById('updateUsernameForm').addEventListener('submit', (e) => {
-    //     e.preventDefault();
-    //     console.log('Update trigger');
-
-    //     const formData = new FormData(e.target);
-      
-
-    //     fetch('/setting/change/username', {
-    //       method: 'POST',
-    //       body: formData
-    //     })
-    //     .then(response => {
-    //     console.log('Response status:', response.status);
-    //     if (response.ok) {
-    //         Swal.fire({
-    //             title: 'Username updated Successfully!',
-    //             text: 'update has been completed. You can now login with your new username.',
-    //             icon: 'success',
-    //             confirmButtonText: 'OK'
-    //         }).then(() => {
-    //             document.getElementById('updateUsernameForm').reset();
-    //         });
-    //     } else {
-    //         Swal.fire({
-    //             title: 'Error',
-    //             text: 'There was a problem updating your information. Please try again later.',
-    //             icon: 'error',
-    //             confirmButtonText: 'OK'
-    //         });
-    //     }
-    // })
-    // .catch(error => {
-    //     Swal.fire({
-    //         title: 'Error',
-    //         text: 'There was a problem updating your information. Please try again later.',
-    //         icon: 'error',
-    //         confirmButtonText: 'OK'
-    //     });
-    //     console.log('Error', error);
-    // });
-    //   })
-                </script>
+    <script src="/js/setting.js"></script>
 <%- include('layout/footer') %>

@@ -1,6 +1,18 @@
 <%- include('layout/header') %> 
 <link rel="stylesheet" href="/css/style.css" />
+<style>
+  @media only screen and (max-width: 600px){
+    #fullName{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 55px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
 
+</style>
  </head>
 
  <body>
@@ -12,18 +24,17 @@
             <%- include('./layout/navbar') -%>
     </header>
     
-     <p>
-     </p>
      <main style="margin-top: 70px " id="content-area">
         
-         <h1 class="mb-4" style="text-align: center;">Result Dashboard</h1>
+         <h1 class="mb-4" style="text-align: center; padding-top: 30px;">Result Dashboard</h1>
          <div class="container pt-2 bg-light">
-                 <div class="mb-3" style="margin: 20px;">
-                     <label class="visually-hidden" for="elections-dropdown">Preference</label>
-                     <select class="custom-select" name="elections-dropdown" id="elections-dropdown" required>
-                 <option value="">Select Election</option>
-             </select>
-                 </div>
+          <div class="mb-3" style="margin: 20px;">
+            <label class="visually-hidden" for="elections-dropdown">Preference</label>
+            <select class="form-select" name="elections-dropdown" id="elections-dropdown" required>
+                <option value="">Select Election</option>
+            </select>
+        </div>
+        
                  
                      <section>
 
@@ -147,7 +158,7 @@
                             <h2>Youth Coordinator</h2>
                             <div class="row ">
                               <% candidates.forEach(candidate => { %>
-                                <% if (candidate.position == 'Youth Coordinator') { %> 
+                                <% if (candidate.position == 'Youth') { %> 
                                   <div class="col-md-4 mb-4">
                                     <div class="card ">
                                       <div class="card-body ">
@@ -187,4 +198,3 @@
      <script src="/js/dashboard.js"></script>
      
  <%- include('layout/footer') %>
-
